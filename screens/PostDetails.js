@@ -187,7 +187,7 @@ import { useAuth } from '../auth/AuthContext';
          style={styles.comment}
          placeholderTextColor={'#444'} 
          placeholder="Add comment"
-        // autoFocus={true}
+        autoFocus={false}
          onChangeText={(text)=>setComment(text)}
          value={comment}
         />

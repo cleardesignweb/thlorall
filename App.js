@@ -22,6 +22,7 @@ import OnBoardingScreen from './screens/OnBoardingScreen';
 import SavedPosts from './screens/SavedPosts';
 import LikedPhotos from './screens/LikedPhotos';
 import PasswordReset from './screens/PasswordReset';
+import FirstScreen from './screens/FirstScreen';
 const Stack = createNativeStackNavigator();
  
 export default function App() {
@@ -44,6 +45,9 @@ export default function App() {
       <Stack.Screen name="login" component={Login} options={{
          headerShown: false
       }} />
+      <Stack.Screen name="Welcome" component={FirstScreen} 
+      // options={{headerShown: false}} 
+      />
       <Stack.Screen name='UserProfileScreen'component={UserProfileScreen}options={{
          headerShown: false
       }}/>

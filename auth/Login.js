@@ -7,11 +7,10 @@ import { useNavigation } from '@react-navigation/core'
  import AsyncStorage from '@react-native-async-storage/async-storage'
 import app, { auth } from '../data/Firebase'
 import { useAuth } from './AuthContext'
- 
- 
+  
   const LoginForm = () => {
     const {user} = useAuth()
-     const image = {uri: 'https://images.unsplash.com/photo-1517732306149-e8f829eb588a?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'}
+      const image = {uri: 'https://images.unsplash.com/photo-1517732306149-e8f829eb588a?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'}
     const navigation = useNavigation()
      const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -32,6 +31,7 @@ import { useAuth } from './AuthContext'
   useEffect(() => {     
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
+        const uid = user.uid
         // console.log('User is signed in:', user.uid);
         await AsyncStorage.setItem('user', user.uid);
         navigation.replace('Feed');
@@ -99,13 +99,13 @@ import { useAuth } from './AuthContext'
  </TouchableOpacity>
       )
       }           
-      {/* <View style={styles.dont}>
+      <View style={styles.dont}>
       <Text style={styles.have}>Don't have an account?</Text>          
       <TouchableOpacity 
       onPress={()=>navigation.navigate('signup')}>
         <Text style={styles.fogot}> Sign up</Text>
       </TouchableOpacity>
-      </View> */}
+      </View>
             </>         
      </View>
     </ImageBackground>

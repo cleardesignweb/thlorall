@@ -39,7 +39,7 @@ import PostPicture from '../components/PostPicture';
 
       <ScrollView>
       <View style={styles.homeHeader}>
-        <Image source={require('../assets/Thlorall.png')} style={styles.logo} />
+        {/* <Image source={require('../assets/Thlorall.png')} style={styles.logo} /> */}
       
       </View>
         {loading ? (

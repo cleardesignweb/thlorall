@@ -17,37 +17,31 @@ import { useAuth } from './AuthContext';
   const [loading, setLoading] = useState(null)
   const navigation = useNavigation()
   const image = {uri: 'https://images.unsplash.com/photo-1528642474498-1af0c17fd8c3?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'}
-
   // Login 
   const handleSignUp = () => {
-    setLoading(true);
-  
+    setLoading(true);  
     createUserWithEmailAndPassword(auth, email, password)
       .then(async (userCredential) => {
         // Wait for the authentication state to change
         const unsubscribe = onAuthStateChanged(auth, async (user) => {
           if (user) {
             const uid =  user.uid;
-
             try {
               // Add user document to the 'users' collection
               const docRef = doc(db, 'users', user.uid);  
               await setDoc(docRef, {
                 userId:uid,
                 email:email
-              })
-  
+              })  
               setLoading(false);
               console.log("Document written with ID: ", docRef.id);
             } catch (e) {
               console.error("Error adding document: ", e);
-            }
-  
+            }  
             // Unsubscribe from the auth state changes
             unsubscribe();
           }
-        });
-  
+        });  
         console.log("Signed In");
         navigation.navigate('Feed');
       })
@@ -55,25 +49,7 @@ import { useAuth } from './AuthContext';
         console.log(error.message);
         setLoading(false);
       });
-  };
-
-// Google
-
-const signWithGoogle = ()=>{
-  // const navigate = useNavigate()
-   const provider = new GoogleAuthProvider();
-  signInWithPopup(auth, provider)
-  .then((result) => {
-    // This gives you a Google Access Token. You can use it to access the Google API.
-     const user = result.user       
-    //  navigate('/profile') 
-  }).catch((error) => {
-       const errorCode = error.code;
-    });
-}
-
- 
-
+  }; 
   return (
     <View style={styles.mainContainer}>
 <ScrollView>

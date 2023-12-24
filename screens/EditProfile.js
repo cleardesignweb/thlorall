@@ -167,7 +167,8 @@ import { onAuthStateChanged } from 'firebase/auth';
       
   return (
     <View>
-       <View>
+        <ScrollView>
+        <View>
         <ImageBackground  source={{uri: backgroundImageBanner ? backgroundImageBanner : backImageBanner }} alt='backimage' style={styles.backimage}>
 
           <View style={styles.headerIcons}>
@@ -266,6 +267,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 
                        
       </View>
+        </ScrollView>
     </View>
   )
 }
