@@ -27,9 +27,6 @@ import PostPicture from '../components/PostPicture';
       FetchPostData();
      
   }) 
-
-  const adUnitID = 'ca-app-pub-7226104622467063/3140672227';
-
  
   return (
     <View style={styles.HomeContainer}>

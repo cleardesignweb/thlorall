@@ -22,7 +22,7 @@
     "@react-navigation/native-stack": "^6.9.17",
     "@react-oauth/google": "^0.12.1",
     "expo": "~49.0.15",
-    "expo-ads-admob": "^13.0.0",
+    "expo-ads-admob": "^5.0.1",
     "expo-av": "^13.6.0",
     "expo-camera": "^13.6.0",
     "expo-image-picker": "^14.5.0",
